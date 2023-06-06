@@ -1,3 +1,5 @@
+USE clinica;
+
 -- Vistas:
 -- Vista "vista_pacientes": Muestra información de los pacientes sin médico cabecera.
 CREATE VIEW vista_pacientes AS
