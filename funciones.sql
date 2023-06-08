@@ -30,3 +30,18 @@ BEGIN
   RETURN promedio_edad;
 END//
 DELIMITER ;
+
+DELIMITER // -- Funcion contar_medicos_subespecialidad: Cuenta la cantidad de medicos que tienen una subespecialidad determinada.
+CREATE FUNCTION contar_medicos_subespecialidad(subespecialidad_nombre VARCHAR(150))
+RETURNS INT
+BEGIN
+  DECLARE contador INT;
+  SELECT COUNT(*) INTO contador
+  FROM medico m
+  INNER JOIN especialidadmedica e ON m.especialidad_id = e.id
+  WHERE e.subespecialidad = subespecialidad_nombre;
+  
+  RETURN contador;
+END //
+DELIMITER ;
+
