@@ -114,9 +114,10 @@ Estas relaciones permiten establecer vínculos entre los registros de las difere
 
 
 ```
-```sh
-Listado de Vistas:
 
+### Listado de Vistas:
+
+```sh
 Vista "vista_pacientes":
 
 "Descripción": Esta vista muestra información de los pacientes que no tienen asignado un médico cabecera. Incluye el ID del paciente, nombre, apellido, edad y denominación de la obra social a la que pertenece.
@@ -173,8 +174,11 @@ Tabla "obrasocial": Contiene información sobre las obras sociales a las que pue
 
 ```
 
+### Listado de Funciones:
+
+
 ```sh
-Listado de Funciones:
+
 
 Función "calcular_edad":
 
@@ -197,8 +201,11 @@ Función "contar_medicos_subespecialidad":
 "Tablas o datos que manipula": Esta función accede a las tablas "medico" y "especialidadmedica" para realizar la consulta y obtener la cantidad de médicos que tienen una subespecialidad específica. Se realiza una unión (JOIN) entre estas dos tablas utilizando el ID de la especialidad en la tabla "medico" y el ID de la especialidad en la tabla "especialidadmedica".
 ```
 
+### Listado de Stored Procedures:
+
+
 ```sh
-Listado de Stored Procedures:
+
 
 Stored Procedure "sp_OrdenarTabla":
 
@@ -221,10 +228,12 @@ Stored Procedure "sp_BuscarPacientesPorEspecialidad":
 "Tablas o datos que manipulan": Este stored procedure accede a las tablas "persona", "medico" y "especialidadmedica" para realizar la consulta. Realiza un JOIN entre estas tablas para obtener los nombres y apellidos de los pacientes cuyo médico de cabecera tenga la especialidad médica especificada como parámetro.
 ```
 
+### Detalles de la importación de datos
+
 
 ```sh
 
-"Detalles de la importación de datos"
+
 
 La importación de datos en el script se realiza utilizando la sentencia SQL LOAD DATA INFILE. 
 A continuación, se proporciona un detalle de cómo se realizan las importaciones en este script:
@@ -252,7 +261,7 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 
 ```
 
-## Scripts de la Base de Datos (Click en los siguientes enlaces):
+### Scripts de la Base de Datos (Click en los siguientes enlaces):
 
 * <a href="./historia_clinica.sql"> Creacion de la Base de Datos </a><br>
 * <a href="./insertar_datos.sql">Script de Inserción de Datos</a><br>
