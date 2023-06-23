@@ -267,4 +267,9 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 ---
 <br>
 
-### Autor: Alejandro Daniel Di Stefano
+## Autor: Alejandro Daniel Di Stefano
+
+### Comisión #43410 - CoderHouse
+
+---
+
