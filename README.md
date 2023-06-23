@@ -224,6 +224,8 @@ Stored Procedure "sp_BuscarPacientesPorEspecialidad":
 
 ```sh
 
+"Detalles de la importación de datos"
+
 La importación de datos en el script se realiza utilizando la sentencia SQL LOAD DATA INFILE. 
 A continuación, se proporciona un detalle de cómo se realizan las importaciones en este script:
 
