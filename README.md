@@ -262,6 +262,7 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 ```
 
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
+<br>
 
 * <a href="./historia_clinica.sql"> Creacion de la Base de Datos </a><br>
 * <a href="./insertar_datos.sql">Script de Inserción de Datos</a><br>
@@ -271,7 +272,7 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 * <a href="./triggers.sql">Creacion de los Triggers</a><br>
 * <a href="./consultas.sql">Consultas</a><br>
 
-
+<br>
 
 ---
 <br>
