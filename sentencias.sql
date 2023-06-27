@@ -11,6 +11,12 @@ USE mysql;
 CREATE USER usuario_lectura IDENTIFIED BY 'user_lectura'; -- Usuario de solo lectura
 CREATE USER usuario_lectura_escritura IDENTIFIED BY 'user_lectura_escritura'; -- Usuario de lectura, inserción y modificación
 
+-- Crear usuario de Prueba:
+CREATE USER usuario_prueba IDENTIFIED BY 'user_prueba'; -- Usuario de prueba
+
+-- Eliminar usuario de Prueba:
+DROP USER usuario_prueba;
+
 
 -- Asignar permisos a los usuarios:
 
@@ -41,6 +47,3 @@ SELECT * FROM USER WHERE User LIKE 'usuario_%';
 
 -- Seleccionar todos los permisos de los usuarios de la base de datos que comiencen con "usuario_":
 SELECT * FROM mysql.db WHERE User LIKE 'usuario_%';
-
-
-
