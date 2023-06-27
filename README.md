@@ -261,6 +261,20 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 
 ```
 
+### Sublenguaje DCL::
+
+```sh
+
+El sublenguaje DCL (Data Control Language) se utiliza para controlar el acceso a los datos almacenados en la base de datos.
+
+En este script, se utilizan las siguientes sentencias DCL:
+
+CREATE USER: Se utiliza para crear un nuevo usuario de la base de datos.
+GRANT: Se utiliza para otorgar privilegios a los usuarios de la base de datos.
+REVOKE: Se utiliza para revocar privilegios a los usuarios de la base de datos.
+
+```
+
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
 <br>
 
@@ -271,7 +285,7 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 * <a href="./stored_procedures.sql">Creacion de los Stored Procedures</a><br>
 * <a href="./triggers.sql">Creacion de los Triggers</a><br>
 * <a href="./consultas.sql">Consultas</a><br>
-
+* <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
 <br>
 
 ---
