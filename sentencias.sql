@@ -1,14 +1,4 @@
-USE clinica;
-
--- Creación de la tabla "User"
-CREATE TABLE IF NOT EXISTS User (
-    id int(20) NOT NULL AUTO_INCREMENT,
-    username varchar(50) NOT NULL,
-    password varchar(50) NOT NULL,
-    PRIMARY KEY (id),
-    UNIQUE KEY username (username)
-);
-
+USE mysql;
 
 -- Creación de usuarios:
 
@@ -44,3 +34,13 @@ REVOKE DELETE ON clinica.* FROM usuario_lectura;
 REVOKE DELETE ON clinica.* FROM usuario_lectura_escritura;
 
 -- Con esta revocación, los usuarios solo pueden realizar operaciones de lectura, inserción y modificación, pero no tienen permisos para eliminar registros.
+
+
+-- Seleccionar todos los usuarios de la base de datos que comiencen con "usuario_":
+SELECT * FROM USER WHERE User LIKE 'usuario_%';
+
+-- Seleccionar todos los permisos de los usuarios de la base de datos que comiencen con "usuario_":
+SELECT * FROM mysql.db WHERE User LIKE 'usuario_%';
+
+
+
