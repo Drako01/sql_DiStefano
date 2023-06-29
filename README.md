@@ -261,7 +261,7 @@ Después de la importación, se puede realizar una consulta (SELECT) para visual
 
 ```
 
-### Sublenguaje DCL::
+### Creacion de los Usuarios y Asignación de Permisos - Sublenguaje DCL:
 
 ```sh
 
@@ -275,6 +275,30 @@ REVOKE: Se utiliza para revocar privilegios a los usuarios de la base de datos.
 
 ```
 
+### Modificaciones controladas mediante transacciones - Sublenguaje TCL:
+
+```sh
+
+El sublenguaje TCL (Transaction Control Language) se utiliza para controlar las transacciones en la base de datos.
+
+En este script, se utilizan las siguientes sentencias TCL:
+
+COMMIT: Se utiliza para confirmar los cambios realizados en la base de datos.
+ROLLBACK: Se utiliza para deshacer los cambios realizados en la base de datos.
+SAVEPOINT: Se utiliza para establecer un punto de guardado dentro de una transacción.
+
+START TRANSACTION: Se utiliza para iniciar una transacción.
+ROLLBACK TRANSACTION: Se utiliza para deshacer los cambios realizados en una transacción.
+COMMIT TRANSACTION: Se utiliza para confirmar los cambios realizados en una transacción.
+
+ROLLBACK TO SAVEPOINT: Se utiliza para deshacer los cambios realizados en una transacción hasta un punto de guardado específico.
+REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transacción.
+
+
+```
+
+<br>
+
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
 <br>
 
@@ -286,6 +310,7 @@ REVOKE: Se utiliza para revocar privilegios a los usuarios de la base de datos.
 * <a href="./triggers.sql">Creacion de los Triggers</a><br>
 * <a href="./consultas.sql">Consultas</a><br>
 * <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
+* <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
 <br>
 
 ---
