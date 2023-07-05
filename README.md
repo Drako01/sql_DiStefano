@@ -4,8 +4,8 @@
     <img src="https://jobs.coderhouse.com/assets/logos_coderhouse.png" alt="CoderHouse"  height="100"/>
 </p>
 
-
 ---
+
 <br>
 
 <p align="center"> 
@@ -14,7 +14,6 @@
 <br>
 
 ---
-
 
 ### Descripcion de la Base de Datos
 
@@ -176,7 +175,6 @@ Tabla "obrasocial": Contiene información sobre las obras sociales a las que pue
 
 ### Listado de Funciones:
 
-
 ```sh
 
 
@@ -202,7 +200,6 @@ Función "contar_medicos_subespecialidad":
 ```
 
 ### Listado de Stored Procedures:
-
 
 ```sh
 
@@ -230,12 +227,11 @@ Stored Procedure "sp_BuscarPacientesPorEspecialidad":
 
 ### Detalles de la importación de datos
 
-
 ```sh
 
 
 
-La importación de datos en el script se realiza utilizando la sentencia SQL LOAD DATA INFILE. 
+La importación de datos en el script se realiza utilizando la sentencia SQL LOAD DATA INFILE.
 A continuación, se proporciona un detalle de cómo se realizan las importaciones en este script:
 
 Importación de datos en la tabla "medico":
@@ -245,7 +241,7 @@ Se utiliza la cláusula FIELDS TERMINATED BY ',' para indicar que los campos en 
 Se utiliza la cláusula ENCLOSED BY '"' para indicar que los valores de los campos están encerrados entre comillas dobles.
 La cláusula LINES TERMINATED BY '\n' se utiliza para indicar que cada registro en el archivo CSV está separado por una nueva línea.
 La cláusula IGNORE 1 LINES se utiliza para ignorar la primera línea del archivo CSV, que generalmente contiene encabezados de columna.
-Los datos del archivo CSV se asignan a las columnas correspondientes de la tabla "medico" según el orden en el archivo CSV. 
+Los datos del archivo CSV se asignan a las columnas correspondientes de la tabla "medico" según el orden en el archivo CSV.
 Los nombres de las columnas en la tabla "medico" deben coincidir con los nombres de las columnas en el archivo CSV.
 Antes de la importación, se desactiva temporalmente la restricción de clave foránea utilizando la sentencia SET FOREIGN_KEY_CHECKS = 0 para permitir la inserción de registros sin verificar las claves foráneas.
 Después de la importación, se reactiva la restricción de clave foránea utilizando la sentencia SET FOREIGN_KEY_CHECKS = 1 para volver a habilitar la verificación de claves foráneas.
@@ -302,41 +298,42 @@ REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transac
 ```sh
 -- Para generar el backup de la base de datos clinica, usar el siguiente comando:
 
-    mysqldump -u root -p --no-create-info clinica > backup.sql
+    mysqldump -u root -p [clinica] --no-create-info clinica > backup.sql
 
--- Base de datos: clinica 
+-- Base de datos: clinica
 -- Archivo: backup.sql
 
 
 -- Para restaurar la base de datos clinica, usar el siguiente comando:
 
-    mysql -u root -p clinica < backup.sql
+    mysqldump -u root -p  [clinica] < backup.sql
 
 ```
-
 
 <br>
 
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
+
 <br>
 
-* <a href="./historia_clinica.sql"> Creacion de la Base de Datos </a><br>
-* <a href="./insertar_datos.sql">Script de Inserción de Datos</a><br>
-* <a href="./vistas.sql">Creacion de las Vistas</a><br>
-* <a href="./funciones.sql">Creacion de las Funciones</a><br>
-* <a href="./stored_procedures.sql">Creacion de los Stored Procedures</a><br>
-* <a href="./triggers.sql">Creacion de los Triggers</a><br>
-* <a href="./consultas.sql">Consultas</a><br>
-* <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
-* <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
-* <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
-<br>
+- <a href="./historia_clinica.sql"> Creacion de la Base de Datos </a><br>
+- <a href="./insertar_datos.sql">Script de Inserción de Datos</a><br>
+- <a href="./vistas.sql">Creacion de las Vistas</a><br>
+- <a href="./funciones.sql">Creacion de las Funciones</a><br>
+- <a href="./stored_procedures.sql">Creacion de los Stored Procedures</a><br>
+- <a href="./triggers.sql">Creacion de los Triggers</a><br>
+- <a href="./consultas.sql">Consultas</a><br>
+- <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
+- <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
+- <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
+  <br>
 
 ---
+
 <br>
 
 ## Autor: Alejandro Daniel Di Stefano
+
 ### Comisión #43410 - CoderHouse
 
 ---
-
