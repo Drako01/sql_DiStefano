@@ -356,7 +356,7 @@ Se otorgaron permisos de lectura, inserción, actualización y eliminación al U
 - <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
 - <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
 - <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
-- <a href="./workshop_tres.sql">Workshop DCL y TCL</a>
+- <a href="./workshop_tres.sql">Workshop DCL y TCL (Con creación de Usuarios y Asignación de Permisos)</a>
   <br>
 
 ---
