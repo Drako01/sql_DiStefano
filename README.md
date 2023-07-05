@@ -310,6 +310,37 @@ REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transac
 
 ```
 
+### Workshop DCL y TCL
+
+```sh
+- Se crearon 3 usuarios:
+
+Usuario1: Con permisos de lectura sobre determinadas tablas.
+Usuario2: Con permisos de lectura y escritura sobre todas las tablas.
+Usuario3: Con permisos de lectura y eliminación sobre todas las tablas.
+
+- Se asignaron los permisos correspondientes a cada usuario sobre las tablas:
+
+Usuario1 recibió permisos de lectura sobre las tablas "obrasocial" y "consultorios".
+Usuario2 recibió permisos de lectura, inserción y actualización sobre todas las tablas del esquema "clinica".
+Usuario3 recibió permisos de lectura y eliminación sobre todas las tablas del esquema "clinica".
+
+- Se realizaron pruebas de los permisos otorgados mediante operaciones DML:
+
+Usuario1 ejecutó una consulta SELECT sobre la tabla "obrasocial".
+Usuario2 realizó operaciones de inserción, actualización y eliminación en las tablas "obrasocial" y "consultorios".
+Usuario3 ejecutó una consulta SELECT sobre la tabla "consultorios" y eliminó registros de la tabla "consultorios".
+
+- Se eliminó el Usuario3 y se transfirieron sus permisos al Usuario2:
+
+Se revocaron todos los privilegios del Usuario3 sobre el esquema "clinica".
+Se eliminó el Usuario3.
+Se otorgaron permisos de lectura, inserción, actualización y eliminación al Usuario2 sobre todas las tablas del esquema "clinica".
+
+
+```
+
+
 <br>
 
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
@@ -326,6 +357,7 @@ REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transac
 - <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
 - <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
 - <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
+- <a href="./workshop_tres.sql">Workshop DCL y TCL</a>
   <br>
 
 ---
