@@ -297,6 +297,24 @@ REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transac
 
 ```
 
+### Backup y Restore de la Base de Datos:
+
+```sh
+-- Para generar el backup de la base de datos clinica, usar el siguiente comando:
+
+    mysqldump -u root -p --no-create-info clinica > backup.sql
+
+-- Base de datos: clinica 
+-- Archivo: backup.sql
+
+
+-- Para restaurar la base de datos clinica, usar el siguiente comando:
+
+    mysql -u root -p clinica < backup.sql
+
+```
+
+
 <br>
 
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
@@ -311,6 +329,7 @@ REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transac
 * <a href="./consultas.sql">Consultas</a><br>
 * <a href="./sentencias.sql">Creacion de los Usuarios y Asignación de Permisos</a><br>
 * <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
+* <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
 <br>
 
 ---

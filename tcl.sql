@@ -14,10 +14,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 INSERT INTO persona (nombre, apellido, sexo, edad, dni, fecha_nacimiento, direccion, nacionalidad, email, telefono, n_afiliado, fecha_ingreso, localidad_id, medico_cabecera_id, obra_social_id)
 VALUES
 ('Juan', 'Pérez', 'M', 30, '12345678', '1993-05-15', 'Calle 123', 'Argentina', 'juan@mimail.com', '1234567890', '000001', '2021-01-01', 1, 1, 1),
-('María', 'López', 'F', 28, '98735432', '1995-09-20', 'Avenida 456', 'Argentina', 'maria@mimail.com', '0987654321', '000002', '2021-02-01', 2, 2, 1),
+('María', 'López', 'F', 28, '98665432', '1995-09-20', 'Avenida 456', 'Argentina', 'maria@mimail.com', '0987654321', '000002', '2021-02-01', 2, 2, 1),
 ('Carlos', 'García', 'M', 35, '23456789', '1988-07-10', 'Ruta 789', 'Argentina', 'carlos@mimail.com', '5678901234', '000003', '2021-03-01', 3, 3, 2),
 ('Ana', 'Rodríguez', 'F', 40, '87654321', '1983-12-05', 'Calle Principal', 'Argentina', 'ana@mimail.com', '4321098765', '000004', '2021-04-01', 4, 4, 2),
-('Luis', 'Martínez', 'M', 45, '34567890', '1978-11-18', 'Avenida Central', 'Argentina', 'luis@mimail.com', '9012345678', '000005', '2021-05-01', 5, 5, 3);
+('Luis', 'Martínez', 'M', 45, '34117890', '1978-11-18', 'Avenida Central', 'Argentina', 'luis@mimail.com', '9012345678', '000005', '2021-05-01', 5, 5, 3);
 -- Reactivar la restricción de clave foránea
 SET FOREIGN_KEY_CHECKS = 1;
 -- Comentamos las sentencias de rollback y commit para evitar la eliminación de los registros.
