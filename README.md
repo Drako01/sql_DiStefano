@@ -340,7 +340,6 @@ Se otorgaron permisos de lectura, inserción, actualización y eliminación al U
 
 ```
 
-
 <br>
 
 ### Scripts de la Base de Datos (Click en los siguientes enlaces):
