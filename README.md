@@ -467,7 +467,7 @@ Se otorgaron permisos de lectura, inserción, actualización y eliminación al U
 
 <br>
 
-- <a href="./historia_clinica.sql"> Creacion de la Base de Datos </a><br>
+- <a href="./tablas_create.sql"> Creacion de la Base de Datos </a><br>
 - <a href="./insertar_datos.sql">Script de Inserción de Datos</a><br>
 - <a href="./insert_external_data.sql">Script de Inserción de Datos Externos por Archivo</a><br>
 - <a href="./vistas.sql">Creacion de las Vistas</a><br>
