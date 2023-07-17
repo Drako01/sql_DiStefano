@@ -176,3 +176,62 @@ CREATE TABLE IF NOT EXISTS vacaciones_medico (
   KEY vacaciones_medico_id_fk (medico_id),
   CONSTRAINT vacaciones_medico_id_fk FOREIGN KEY (medico_id) REFERENCES medico (id)
 );
+
+-- Tabla "tratamiento": Almacena información sobre los tratamientos médicos realizados a los pacientes.
+CREATE TABLE IF NOT EXISTS tratamiento (
+  id int(20) NOT NULL AUTO_INCREMENT,
+  nombre varchar(150) NOT NULL,
+  descripcion text,
+  costo decimal(10, 2) NOT NULL,
+  fecha_inicio date NOT NULL,
+  fecha_fin date NOT NULL,
+  paciente_id int(20) NOT NULL,
+  doctor_id int(20) NOT NULL,
+  PRIMARY KEY (id),
+  KEY tratamiento_paciente_id_fk (paciente_id),
+  KEY tratamiento_doctor_id_fk (doctor_id),
+  CONSTRAINT tratamiento_paciente_id_fk FOREIGN KEY (paciente_id) REFERENCES persona (id),
+  CONSTRAINT tratamiento_doctor_id_fk FOREIGN KEY (doctor_id) REFERENCES medico (id)
+);
+
+-- Tabla "diagnostico": Almacena información sobre los diagnósticos realizados a los pacientes.
+CREATE TABLE IF NOT EXISTS diagnostico (
+  id int(20) NOT NULL AUTO_INCREMENT,
+  codigo varchar(20) NOT NULL,
+  descripcion text,
+  fecha date NOT NULL,
+  paciente_id int(20) NOT NULL,
+  doctor_id int(20) NOT NULL,
+  PRIMARY KEY (id),
+  KEY diagnostico_paciente_id_fk (paciente_id),
+  KEY diagnostico_doctor_id_fk (doctor_id),
+  CONSTRAINT diagnostico_paciente_id_fk FOREIGN KEY (paciente_id) REFERENCES persona (id),
+  CONSTRAINT diagnostico_doctor_id_fk FOREIGN KEY (doctor_id) REFERENCES medico (id)
+);
+
+-- Tabla "tratamiento_medicamento": Relaciona los tratamientos con los medicamentos recetados en cada uno.
+CREATE TABLE IF NOT EXISTS tratamiento_medicamento (
+  id int(20) NOT NULL AUTO_INCREMENT,
+  tratamiento_id int(20) NOT NULL,
+  medicamento varchar(150) NOT NULL,
+  dosis varchar(50) NOT NULL,
+  PRIMARY KEY (id),
+  KEY tratamiento_med_fk (tratamiento_id),
+  CONSTRAINT tratamiento_med_fk FOREIGN KEY (tratamiento_id) REFERENCES tratamiento (id)
+);
+
+-- Tabla "factura": Almacena información sobre las facturas emitidas a los pacientes por los servicios prestados.
+CREATE TABLE IF NOT EXISTS factura (
+  id int(20) NOT NULL AUTO_INCREMENT,
+  numero_factura varchar(20) NOT NULL,
+  fecha_emision date NOT NULL,
+  total decimal(10, 2) NOT NULL,
+  paciente_id int(20) NOT NULL,
+  medico_id int(20) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY numero_factura (numero_factura),
+  KEY factura_paciente_id_fk (paciente_id),
+  KEY factura_medico_id_fk (medico_id),
+  CONSTRAINT factura_paciente_id_fk FOREIGN KEY (paciente_id) REFERENCES persona (id),
+  CONSTRAINT factura_medico_id_fk FOREIGN KEY (medico_id) REFERENCES medico (id)
+);

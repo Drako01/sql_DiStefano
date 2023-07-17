@@ -88,3 +88,61 @@ END//
 DELIMITER ;
 
 
+-- Trigger BEFORE para la tabla "persona":
+-- Este trigger registra la actividad antes de que se realice una operación en la tabla "persona", incluyendo inserciones y actualizaciones. 
+-- Registra el usuario que realiza la operación, la fecha y la hora actual, junto con una descripción de la acción que se realizará.
+DELIMITER //
+
+CREATE TRIGGER tr_before_persona
+BEFORE INSERT ON persona
+FOR EACH ROW
+BEGIN
+    INSERT INTO log_persona (usuario, fecha, hora, accion)
+    VALUES (CURRENT_USER(), CURDATE(), CURTIME(), 'Se va a insertar un nuevo registro en la tabla persona.'); -- Se inserta el usuario actual, la fecha y la hora actual, junto con una descripción de la acción que se realizará.
+END//
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE TRIGGER tr_before_update_persona
+BEFORE UPDATE ON persona
+FOR EACH ROW
+BEGIN
+    INSERT INTO log_persona (usuario, fecha, hora, accion)
+    VALUES (CURRENT_USER(), CURDATE(), CURTIME(), 'Se va a actualizar un registro en la tabla persona.'); -- Se inserta el usuario actual, la fecha y la hora actual, junto con una descripción de la acción que se realizará.
+END//
+
+DELIMITER ;
+
+-- Triggers para la tabla "tratamiento":
+
+-- 2. Trigger AFTER para la tabla "tratamiento":
+-- Este trigger registra la actividad después de que se haya realizado una operación en la tabla "tratamiento", incluyendo inserciones y actualizaciones. Registra el usuario que realizó la operación, la fecha y la hora actual, junto con una descripción de la acción que se realizó.
+
+
+DELIMITER //
+
+CREATE TRIGGER tr_after_tratamiento
+AFTER INSERT ON tratamiento
+FOR EACH ROW
+BEGIN
+    INSERT INTO log_tratamiento (usuario, fecha, hora, accion)
+    VALUES (CURRENT_USER(), CURDATE(), CURTIME(), 'Se ha insertado un nuevo registro en la tabla tratamiento.'); -- Se inserta el usuario actual, la fecha y la hora actual, junto con una descripción de la acción que se realizó.
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER tr_after_update_tratamiento
+AFTER UPDATE ON tratamiento
+FOR EACH ROW
+BEGIN
+    INSERT INTO log_tratamiento (usuario, fecha, hora, accion)
+    VALUES (CURRENT_USER(), CURDATE(), CURTIME(), 'Se ha actualizado un registro en la tabla tratamiento.'); -- Se inserta el usuario actual, la fecha y la hora actual, junto con una descripción de la acción que se realizó.
+END//
+
+DELIMITER ;
+

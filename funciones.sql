@@ -1,6 +1,5 @@
 USE clinica;
 
--- Funciones:
 -- Función "calcular_edad": Calcula la edad en años a partir de la fecha de nacimiento.
 DELIMITER //
 CREATE FUNCTION `calcular_edad` (birth_date DATE) RETURNS INT
@@ -11,7 +10,8 @@ BEGIN
 END//
 DELIMITER ;
 
-DELIMITER //-- Función "calcular_promedio_edad": Calcula la edad promedio en años a partir de la fecha de nacimiento de todos los pacientes.
+-- Función "calcular_promedio_edad": Calcula la edad promedio en años a partir de la fecha de nacimiento de todos los pacientes.
+DELIMITER //
 CREATE FUNCTION calcular_promedio_edad() RETURNS DECIMAL(10,2)
 BEGIN
   DECLARE total_edad INT;
@@ -31,9 +31,9 @@ BEGIN
 END//
 DELIMITER ;
 
-DELIMITER // -- Funcion contar_medicos_subespecialidad: Cuenta la cantidad de medicos que tienen una subespecialidad determinada.
-CREATE FUNCTION contar_medicos_subespecialidad(subespecialidad_nombre VARCHAR(150))
-RETURNS INT
+-- Función contar_medicos_subespecialidad: Cuenta la cantidad de médicos que tienen una subespecialidad determinada.
+DELIMITER //
+CREATE FUNCTION contar_medicos_subespecialidad(subespecialidad_nombre VARCHAR(150)) RETURNS INT
 BEGIN
   DECLARE contador INT;
   SELECT COUNT(*) INTO contador
@@ -45,3 +45,28 @@ BEGIN
 END //
 DELIMITER ;
 
+-- Función calcular_costo_total_tratamientos_paciente: Calcula el costo total de los tratamientos realizados a un paciente.
+DELIMITER //
+CREATE FUNCTION calcular_costo_total_tratamientos_paciente(paciente_id INT) RETURNS DECIMAL(10, 2)
+BEGIN
+  DECLARE total_costo DECIMAL(10, 2);
+  SELECT SUM(costo) INTO total_costo
+  FROM tratamiento
+  WHERE paciente_id = paciente_id;
+  
+  RETURN total_costo;
+END //
+DELIMITER ;
+
+-- Función buscar_pacientes_por_medico: Devuelve una lista de pacientes asociados a un médico.
+DELIMITER //
+CREATE FUNCTION buscar_pacientes_por_medico(medico_id INT) RETURNS TEXT
+BEGIN
+  DECLARE lista_pacientes TEXT;
+  SELECT GROUP_CONCAT(nombre, ' ', apellido) INTO lista_pacientes
+  FROM persona
+  WHERE medico_cabecera_id = medico_id;
+  
+  RETURN lista_pacientes;
+END //
+DELIMITER ;

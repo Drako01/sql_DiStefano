@@ -99,6 +99,36 @@ La clave primaria "id" se seleccionó como identificador único para cada regist
 La clave foránea "medico_id" se utiliza para establecer la relación entre las vacaciones médicas y el médico que tomó esas vacaciones.
 
 
+tabla "tratamiento":
+
+Clave primaria: id (identificador único del tratamiento).
+Clave foránea: paciente_id (relacionada con la tabla "persona").
+La clave primaria "id" se seleccionó como identificador único para cada tratamiento.
+La clave foránea "paciente_id" se utiliza para establecer la relación entre el tratamiento y el paciente que recibió el tratamiento.
+
+
+tabla "diagnotico": 
+
+Clave primaria: id (identificador único del diagnóstico).
+Clave foránea: paciente_id (relacionada con la tabla "persona").
+La clave primaria "id" se seleccionó como identificador único para cada diagnóstico.
+La clave foránea "paciente_id" se utiliza para establecer la relación entre el diagnóstico y el paciente que recibió el diagnóstico.
+
+
+tabla "tratamiento_medico":
+
+Clave primaria: id (identificador único del tratamiento médico).
+Claves foráneas: medico_id, tratamiento_id (relacionadas con las tablas "medico" y "tratamiento" respectivamente).
+La clave primaria "id" se seleccionó como identificador único para cada tratamiento médico.
+Las claves foráneas "medico_id" y "tratamiento_id" se utilizan para establecer las relaciones entre el tratamiento médico, el médico que realizó el tratamiento y el tratamiento realizado.
+
+
+tabla "factura":
+
+Clave primaria: id (identificador único de la factura).
+Clave foránea: paciente_id (relacionada con la tabla "persona").
+La clave primaria "id" se seleccionó como identificador único para cada factura.
+La clave foránea "paciente_id" se utiliza para establecer la relación entre la factura y el paciente que recibió la factura.
 
 
 
@@ -171,6 +201,49 @@ Vista "vista_pacientes_obrasociales":
 Tabla "persona": Contiene información general de las personas, incluyendo pacientes. Se utiliza para obtener el ID, nombre y apellido del paciente.
 Tabla "obrasocial": Contiene información sobre las obras sociales a las que pueden pertenecer los pacientes. Se utiliza para obtener la denominación de la obra social del paciente.
 
+
+Vista "vista_tratamientos_paciente":
+
+"Descripción": Esta vista muestra información de los tratamientos realizados a cada paciente, incluyendo el ID del tratamiento, nombre y apellido del paciente, nombre del médico que realizó el tratamiento y nombre del tratamiento realizado.
+"Objetivo": El objetivo de esta vista es proporcionar una lista de los tratamientos realizados a cada paciente, incluyendo el nombre del paciente, el médico que realizó el tratamiento y el nombre del tratamiento realizado. Esto puede ser útil para el seguimiento de los tratamientos realizados a cada paciente.
+"Tablas que la componen": Esta vista está compuesta por las siguientes tablas:
+Tabla "tratamiento": Contiene información de los tratamientos realizados a los pacientes, incluyendo su ID y nombre.
+Tabla "persona": Utilizada para obtener el nombre y apellido del paciente asociado al tratamiento.
+Tabla "medico": Utilizada para obtener el nombre del médico que realizó el tratamiento.
+
+
+Vista "vista_diagnosticos_paciente":
+
+"Descripción": Esta vista muestra información de los diagnósticos realizados a cada paciente, incluyendo el ID del diagnóstico, nombre y apellido del paciente, nombre del médico que realizó el diagnóstico y nombre del diagnóstico realizado.
+"Objetivo": El objetivo de esta vista es proporcionar una lista de los diagnósticos realizados a cada paciente, incluyendo el nombre del paciente, el médico que realizó el diagnóstico y el nombre del diagnóstico realizado. Esto puede ser útil para el seguimiento de los diagnósticos realizados a cada paciente.
+"Tablas que la componen": Esta vista está compuesta por las siguientes tablas:
+Tabla "diagnostico": Contiene información de los diagnósticos realizados a los pacientes, incluyendo su ID y nombre.
+Tabla "persona": Utilizada para obtener el nombre y apellido del paciente asociado al diagnóstico.
+Tabla "medico": Utilizada para obtener el nombre del médico que realizó el diagnóstico.
+
+
+Vista "vista_consultas_medico":
+
+"Descripción": Esta vista muestra información de las consultas realizadas por cada médico, incluyendo el ID de la consulta, nombre y apellido del paciente, nombre del médico que realizó la consulta y fecha de la consulta.
+"Objetivo": El objetivo de esta vista es proporcionar una lista de las consultas realizadas por cada médico, incluyendo el nombre del paciente, la fecha de la consulta y el nombre del médico que realizó la consulta. Esto puede ser útil para el seguimiento de las consultas realizadas por cada médico.
+"Tablas que la componen": Esta vista está compuesta por las siguientes tablas:
+Tabla "turno": Contiene información de las consultas realizadas por los médicos, incluyendo su ID y fecha.
+Tabla "persona": Utilizada para obtener el nombre y apellido del paciente asociado a la consulta.
+Tabla "medico": Utilizada para obtener el nombre del médico que realizó la consulta.
+
+
+Vista "vista_empleados_con_vacaciones":
+
+"Descripción": Esta vista muestra información de los empleados que tomaron vacaciones, incluyendo el ID del empleado, nombre y apellido, puesto y nombre de la localidad en la que trabaja.
+"Objetivo": El objetivo de esta vista es proporcionar una lista de los empleados que tomaron vacaciones, incluyendo información relevante como su puesto y la localidad en la que se encuentran, lo cual puede ser útil para la gestión y organización interna de la clínica.
+"Tablas que la componen": Esta vista está compuesta por las siguientes tablas:
+Tabla "empleado": Contiene información específica de los empleados de la clínica, como su ID, nombre, apellido y puesto.
+Tabla "localidad": Contiene información de las localidades, incluyendo el nombre de cada una. Se utiliza para obtener el nombre de la localidad en la que trabaja cada empleado.
+Tabla "vacaciones": Contiene información de las vacaciones tomadas por los empleados, incluyendo su ID y fecha de inicio y fin.
+Tabla "vacaciones_medico": Contiene información de las vacaciones tomadas por los médicos, incluyendo su ID y fecha de inicio y fin.
+
+
+
 ```
 
 ### Listado de Funciones:
@@ -197,6 +270,24 @@ Función "contar_medicos_subespecialidad":
 "Descripción": Esta función cuenta la cantidad de médicos que tienen una subespecialidad específica.
 "Objetivo": El objetivo de esta función es obtener el número de médicos que se especializan en una determinada subespecialidad médica. Esto puede ser útil para conocer la disponibilidad de médicos en una subespecialidad en particular o para realizar análisis estadísticos sobre la distribución de especialidades en el personal médico.
 "Tablas o datos que manipula": Esta función accede a las tablas "medico" y "especialidadmedica" para realizar la consulta y obtener la cantidad de médicos que tienen una subespecialidad específica. Se realiza una unión (JOIN) entre estas dos tablas utilizando el ID de la especialidad en la tabla "medico" y el ID de la especialidad en la tabla "especialidadmedica".
+
+
+Función "calcular_costo_total_tratamientos_paciente":
+
+"Descripción": Esta función calcula el costo total de los tratamientos realizados a un paciente específico.
+"Objetivo": El objetivo de esta función es obtener el costo total de los tratamientos realizados a un paciente específico. Esto puede ser útil para realizar análisis estadísticos sobre los costos de los tratamientos realizados a los pacientes.
+"Tablas o datos que manipula": Esta función accede a las tablas "tratamiento" y "tratamiento_medico" para realizar la consulta y obtener el costo total de los tratamientos realizados a un paciente específico. Se realiza una unión (JOIN) entre estas dos tablas utilizando el ID del tratamiento en la tabla "tratamiento" y el ID del tratamiento en la tabla "tratamiento_medico".
+
+
+Función buscar_pacientes_por_medico:
+
+"Descripción": Esta función busca pacientes en función de su médico de cabecera. Toma como parámetro el ID del médico de cabecera y devuelve los nombres y apellidos de los pacientes que tienen ese médico de cabecera.
+"Objetivo": El objetivo de esta función es facilitar la búsqueda de pacientes según su médico de cabecera. Esto puede ser útil para identificar rápidamente a los pacientes que están bajo el cuidado de un médico específico.
+"Tablas o datos que manipula": Esta función accede a las tablas "persona" y "medico" para realizar la consulta. Se realiza una unión (JOIN) entre estas dos tablas utilizando el ID del médico de cabecera en la tabla "persona" y el ID del médico en la tabla "medico".
+
+
+
+
 ```
 
 ### Listado de Stored Procedures:
@@ -223,6 +314,36 @@ Stored Procedure "sp_BuscarPacientesPorEspecialidad":
 "Descripción": Este stored procedure busca pacientes en función de su especialidad médica. Toma como parámetro una especialidad médica y devuelve los nombres y apellidos de los pacientes que tienen un médico de cabecera con esa especialidad.
 "Objetivo o beneficio": El objetivo de este stored procedure es facilitar la búsqueda de pacientes según una especialidad médica específica. Esto puede ser útil para identificar rápidamente a los pacientes que están bajo el cuidado de médicos especializados en una determinada área médica.
 "Tablas o datos que manipulan": Este stored procedure accede a las tablas "persona", "medico" y "especialidadmedica" para realizar la consulta. Realiza un JOIN entre estas tablas para obtener los nombres y apellidos de los pacientes cuyo médico de cabecera tenga la especialidad médica especificada como parámetro.
+
+
+Stored Procedure "sp_ActualizarRegistro":
+
+"Descripción": Este stored procedure permite actualizar un registro específico de una tabla especificada, según los valores proporcionados.
+"Objetivo o beneficio": El objetivo de este stored procedure es proporcionar una funcionalidad conveniente para actualizar registros existentes de una tabla en el proyecto de la clínica. Esto simplifica las tareas comunes de actualización de datos y ayuda a mantener la integridad y consistencia de los datos en la base de datos.
+"Tablas o datos que manipulan": Este stored procedure manipula una tabla específica que se especifica como parámetro (p_tabla). Utiliza el valor del parámetro p_condicion para identificar el registro que se debe actualizar. Utiliza el valor del parámetro p_valores para actualizar los valores de los campos especificados en el registro identificado por p_condicion.
+
+
+Stored Procedure "sp_TotalPacientesPorEspecialidad":
+
+"Descripción": Este stored procedure calcula el total de pacientes que tienen un médico de cabecera con una especialidad médica específica.
+"Objetivo o beneficio": El objetivo de este stored procedure es obtener el total de pacientes que tienen un médico de cabecera con una especialidad médica específica. Esto puede ser útil para realizar análisis estadísticos sobre la distribución de especialidades en la población atendida por la clínica.
+"Tablas o datos que manipulan": Este stored procedure accede a las tablas "persona", "medico" y "especialidadmedica" para realizar la consulta. Realiza un JOIN entre estas tablas para obtener el total de pacientes cuyo médico de cabecera tenga la especialidad médica especificada como parámetro.
+
+
+Stored Procedure "sp_CalcularCostoTratamientosPorPaciente":
+
+"Descripción": Este stored procedure calcula el costo total de los tratamientos realizados a un paciente específico.
+"Objetivo o beneficio": El objetivo de este stored procedure es obtener el costo total de los tratamientos realizados a un paciente específico. Esto puede ser útil para realizar análisis estadísticos sobre los costos de los tratamientos realizados a los pacientes.
+"Tablas o datos que manipulan": Este stored procedure accede a las tablas "tratamiento" y "tratamiento_medico" para realizar la consulta y obtener el costo total de los tratamientos realizados a un paciente específico. Se realiza una unión (JOIN) entre estas dos tablas utilizando el ID del tratamiento en la tabla "tratamiento" y el ID del tratamiento en la tabla "tratamiento_medico".
+
+
+Stored Procedure "sp_ConsultoriosOcupadosPorMedico":
+
+"Descripción": Este stored procedure busca los consultorios ocupados por un médico específico. Toma como parámetro el ID del médico y devuelve los nombres y apellidos de los pacientes que tienen un turno asignado con ese médico.
+"Objetivo o beneficio": El objetivo de este stored procedure es facilitar la búsqueda de consultorios ocupados por un médico específico. Esto puede ser útil para identificar rápidamente los consultorios ocupados por un médico en particular.
+"Tablas o datos que manipulan": Este stored procedure accede a las tablas "turno", "persona" y "medico" para realizar la consulta. Realiza un JOIN entre estas tablas para obtener los nombres y apellidos de los pacientes que tienen un turno asignado con el médico especificado como parámetro.
+
+
 ```
 
 ### Detalles de la importación de datos
@@ -348,6 +469,7 @@ Se otorgaron permisos de lectura, inserción, actualización y eliminación al U
 
 - <a href="./historia_clinica.sql"> Creacion de la Base de Datos </a><br>
 - <a href="./insertar_datos.sql">Script de Inserción de Datos</a><br>
+- <a href="./insert_external_data.sql">Script de Inserción de Datos Externos por Archivo</a><br>
 - <a href="./vistas.sql">Creacion de las Vistas</a><br>
 - <a href="./funciones.sql">Creacion de las Funciones</a><br>
 - <a href="./stored_procedures.sql">Creacion de los Stored Procedures</a><br>
@@ -358,6 +480,7 @@ Se otorgaron permisos de lectura, inserción, actualización y eliminación al U
 - <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
 - <a href="./workshop_tres.sql">Workshop DCL y TCL (Con creación de Usuarios y Asignación de Permisos)</a>
 - <a href="./ER_diagram.pdf">Diagrama Entidad-Relación</a>
+- <a href="./clinica.pdf">Script para Importar la Base de Datos</a>
   <br>
 
 ---

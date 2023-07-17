@@ -1,6 +1,6 @@
 -- Para generar el backup de la base de datos clinica, usar el siguiente comando:
 
--- Comando: mysqldump -u root -p [clinica] --no-create-info clinica > backup.sql
+-- Comando: mysqldump -u root -p --no-create-info clinica > backup.sql
 -- Base de datos: clinica 
 -- Archivo: backup.sql
 -- Para restaurar la base de datos clinica, usar el siguiente comando:
