@@ -479,6 +479,8 @@ Se otorgaron permisos de lectura, inserción, actualización y eliminación al U
 - <a href="./tcl.sql">Modificaciones controladas mediante transacciones</a>
 - <a href="./backup.sql">Visualizar el Backup de la Base de Datos</a>
 - <a href="./workshop_tres.sql">Workshop DCL y TCL (Con creación de Usuarios y Asignación de Permisos)</a>
+- <a href="./informes_generator.sql">Generador de algunos Informes</a>
+- <a href="./informes/">Informes</a>
 - <a href="./ER_diagram.pdf">Diagrama Entidad-Relación</a>
 - <a href="./clinica.pdf">Script para Importar la Base de Datos</a>
   <br>
