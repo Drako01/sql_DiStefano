@@ -3,7 +3,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Insetar Datos en algunas Tablas:
 -- Inserción de datos en la tabla "especialidadmedica"
 INSERT INTO especialidadmedica (nombre, subespecialidad, numero) VALUES
-('Cardiología', 'Cardiología Pediátrica', 'ESP-CARD-001'),
+('Cardiología', 'Cardiología', 'ESP-CARD-001'),
 ('Dermatología', 'Cirugía Dermatológica', 'ESP-DERM-001'),
 ('Gastroenterología', 'Endoscopia Digestiva', 'ESP-GASTRO-001'),
 ('Hematología', 'Hemato-Oncología', 'ESP-HEMA-001'),
@@ -17,12 +17,12 @@ INSERT INTO especialidadmedica (nombre, subespecialidad, numero) VALUES
 ('Reumatología', 'Reumatología Pediátrica', 'ESP-REUMA-001'),
 ('Traumatología', 'Traumatología Deportiva', 'ESP-TRAUMA-001'),
 ('Urología', 'Urología Oncológica', 'ESP-UROLO-001'),
-('Anestesiología', NULL, 'ESP-ANEST-001'),
-('Endocrinología', NULL, 'ESP-ENDO-001'),
-('Ginecología', NULL, 'ESP-GINE-001'),
-('Neurología', NULL, 'ESP-NEURO-001'),
+('Anestesiología', 'Anestesiología', 'ESP-ANEST-001'),
+('Endocrinología', 'Endocrinología', 'ESP-ENDO-001'),
+('Ginecología', 'Ginecología', 'ESP-GINE-001'),
+('Neurología', 'Neurología', 'ESP-NEURO-001'),
 ('Radiología', 'Radiología Vascular e Intervencionista', 'ESP-RADIO-001'),
-('Cirugía General', NULL, 'ESP-CIR-001'),
+('Cirugía Cardiológica', 'Cardiología', 'ESP-CIR-001'),
 ('Geriatria', 'Geriatria Oncologica', 'ESP-GERIA-001'),
 ('Infectologia', 'Infectologia Pediatrica', 'ESP-INFEC-001');
 
