@@ -17,7 +17,6 @@ CREATE USER usuario_prueba IDENTIFIED BY 'user_prueba'; -- Usuario de prueba
 -- Eliminar usuario de Prueba:
 DROP USER usuario_prueba;
 
-
 -- Asignar permisos a los usuarios:
 
 -- Se asignaron los permisos correspondientes a cada usuario utilizando la sintaxis GRANT. 

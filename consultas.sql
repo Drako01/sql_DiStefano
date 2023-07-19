@@ -36,7 +36,6 @@ WHERE especialidad_id IN (
 LIMIT 0, 1000;
 
 
-
 -- Eliminar Tablas
 -- Eliminar tablas usando DROP TABLE o TRUNCATE
 DROP TABLE tabla_prueba;

@@ -45,7 +45,6 @@ DELETE FROM persona WHERE id < 5;
 -- En la línea de ROLLBACK y COMMIT, las sentencias están comentadas para evitar la eliminación permanente de los registros en este momento.
 
 
-
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
