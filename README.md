@@ -15,6 +15,38 @@
 
 ---
 
+
+## Introducción:
+
+
+```sh
+"Bienvenidos a la presentación del sistema de gestión de la clínica. En el entorno de atención médica actual, la eficiencia en la gestión de los datos médicos y administrativos se ha vuelto fundamental para brindar una atención de calidad y garantizar la satisfacción de los pacientes. En esta presentación, exploraremos cómo nuestro sistema de gestión de la clínica puede optimizar los procesos, mejorar la coordinación entre médicos y personal administrativo, y proporcionar una plataforma segura para el manejo de datos médicos".
+
+```
+## Objetivos:
+
+```sh
+"Nuestro objetivo principal es implementar un sistema de gestión de la clínica que permita mejorar la calidad de la atención médica, optimizar los procesos administrativos y garantizar la seguridad de los datos del paciente. Buscamos centralizar la información médica, facilitar el seguimiento de tratamientos y proporcionar una plataforma eficiente para la coordinación entre médicos y personal administrativo. Con este sistema, aspiramos a mejorar la experiencia del paciente y optimizar la eficiencia operativa de la clínica".
+
+```
+
+## Situación Problematica:
+
+
+```sh
+"Actualmente, nuestra clínica se enfrenta a varios desafíos en la gestión de los datos médicos y administrativos. Existe una falta de coordinación entre los médicos y el personal administrativo, lo que dificulta el seguimiento preciso de los tratamientos y la programación de citas. Además, el acceso rápido y seguro a la información del paciente es limitado, lo que afecta la eficiencia de los procesos y la toma de decisiones médicas. Nuestro sistema de gestión de la clínica aborda estas problemáticas al centralizar la información, mejorar la comunicación y proporcionar herramientas eficientes para el manejo de datos médicos".
+
+```
+
+
+## Modelo de negocio:
+
+
+```sh
+"Nuestro modelo de negocio se basa en proporcionar una atención médica especializada y eficiente a nuestros pacientes. Utilizaremos nuestro sistema de gestión de la clínica para optimizar los procesos, mejorar la coordinación entre médicos y personal administrativo, y garantizar la seguridad de los datos. Nuestros ingresos provendrán de consultas médicas, tratamientos, facturación de servicios y otros servicios especializados. A través de canales de distribución como consultorios, atención presencial y telemedicina, buscaremos llegar a nuestros pacientes de manera efectiva. Además, gestionaremos nuestros costos de manera eficiente para garantizar la sostenibilidad y rentabilidad del negocio".
+
+```
+
 ### Descripcion de la Base de Datos
 
 <br>
@@ -346,11 +378,9 @@ Stored Procedure "sp_ConsultoriosOcupadosPorMedico":
 
 ```
 
-### Detalles de la importación de datos
+### Detalles de la importación de datos desde un Archivo Externo - Sublenguaje DML:
 
 ```sh
-
-
 
 La importación de datos en el script se realiza utilizando la sentencia SQL LOAD DATA INFILE.
 A continuación, se proporciona un detalle de cómo se realizan las importaciones en este script:
@@ -419,7 +449,7 @@ REALEASE SAVEPOINT: Se utiliza para eliminar un punto de guardado de una transac
 ```sh
 -- Para generar el backup de la base de datos clinica, usar el siguiente comando:
 
-    mysqldump -u root -p [clinica] --no-create-info clinica > backup.sql
+    mysqldump -u root -p --no-create-info clinica > backup.sql
 
 -- Base de datos: clinica
 -- Archivo: backup.sql
